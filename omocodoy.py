@@ -11,19 +11,12 @@ def clear():
 	else: 
 		os.system('clear')
 
-def logo():
-  def ascii_art_sniperelite():
-     print("""
-\033[1;31m        __/ __/ __/       __/ __/     __/ __/ __/   __/ __/ __/  \033[0m
-\033[1;31m       __/       __/  __/      __/  __/            __/          \033[0m
-\033[1;36m      __/       __/  __/      __/  __/            __/          \033[0m
-\033[1;36m     __/ __/ __/    __/      __/     __/ __/     __/ __/ __/  \033[0m      
-\033[1;35m    __/       __/  __/      __/            __/  __/          \033[0m
-\033[1;35m   __/       __/  __/  __/ __/            __/  __/          \033[0m
-\033[1;32m  __/ __/ __/    __/      __/   __/ __/ __/   __/ __/ __/  \033[0m
-\033[1;34m                                                          \033[0m          
-\033[1;34m    ## BRIGADE ATTACKER SNIPER ELITE ==> internal script By:ZA99\033[0m ##
-""")
+def display_header():
+	header_lines = [
+
+	]
+for line in header_line:
+	print(line)
 
 def check_prox(array, url):
 	ip = r.post("http://ip.beget.ru/").text
