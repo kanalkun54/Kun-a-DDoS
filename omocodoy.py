@@ -2,7 +2,7 @@
 # -*- coding: utf-8  -*-
 import requests as r, os, threading, random, click, fake_headers
 from threading import Thread
-from colorama import Fore, Style, Back
+from colorama import Fore, Style, init
 from fake_headers import Headers
 
 def clear(): 
@@ -23,7 +23,14 @@ f"{Fore.RED}██▒▒ ██▒▒  ██▒▒   ██▒▒ ██▒▒ 
 f"{Fore.RED}██▒▒  ██▒▒  ███████▒▒  ██▒▒    ████▒▒           ██▒▒║    ║██▒▒║",
 f"{Fore.RED}                                                     ╚═══╝    ╚════╝",
 f"{Fore.RED} ╔═══╗╚═══════╝   ║",
-]
+	]
+for line in header_lines:
+	print(line)
+# Versi dan URL
+print(f"{Fore.WHITE}{Style.BRIGJT}{' ' * }LAYER_v.2.0")
+print(f"{Fore.CYAN}{Style.BRIGHT}{' ' * 16}{Fore.YELLOW}---https://kanalkun54@gmail.com----")
+print(f"{Fore.YELLOW}{'=' * 69}")
+
 
 def check_prox(array, url):
 	ip = r.post("http://ip.beget.ru/").text
