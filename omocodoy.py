@@ -1,16 +1,16 @@
-exampleRLRLullrinthenternter!/usr/bin/python3
+#!/usr/bin/python3
 # -*- coding: utf-8  -*-
-import requests as r, threading, random, click, fake_headers
+import requests as r, os, threading, random, click, fake_headers
 from threading import Thread
-import os
-
-# Clear screen
-os.system('cls' if os.name == 'nt' else 'clear')
-
-
-# ASCII Logo
-LOGO = """    
-\033[92m
+from colorama import Fore, Style, Back
+from fake_headers import Headers
+import fade
+def clear(): 
+	if os.name == 'nt': 
+		os.system('cls') 
+	
+os.system('clear')
+logo = """
 {Fore.RED}██▒▒   ██▒▒ ██▒▒   ██▒▒ ████▒▒    ██▒▒              ██████▒▒╗
 {Fore.RED}███▒▒ ██▒▒  ██▒▒   ██▒▒ ██▒██▒▒   ██▒▒            ██▒▒╔═╗██▒▒╗
 {Fore.RED}██▒▒██▒▒    ██▒▒   ██▒▒ ██▒▒██▒▒  ██▒▒           ██▒▒║   ║██▒▒║
