@@ -75,7 +75,7 @@ def main(proxy, url):
 		while True:
 			req = r.get("https://api.proxyscrape.com/?request=displayproxies")
 			array = req.text.split()
-			print("\033[92mBASETL-COMUNITY\033[0m")
+			print("\033[92mKUN.A-OMOKODOY\033[0m")
 			print(Back.YELLOW + Fore.GREEN +" {}Found new proxies".format(len(array))+Style.RESET_ALL)
 			check_prox(array, url)
 			
@@ -84,7 +84,7 @@ def main(proxy, url):
 		try:
 			fx = open(proxy)
 			array = fx.read().split()
-			print("\033[92m" +str(url)+ "\033[33mBASETL-COMUNITY \033[0m")
+			print("\033[92m" +str(url)+ "\033[33mKUN.A-OMOKODOY\033[0m")
 			check_prox(array, url)
 			print("Found {} proxies in {}.\nChecking proxies...".format(len(array), proxy))
 			check_prox(array, url)
