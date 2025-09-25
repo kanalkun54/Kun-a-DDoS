@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+exampleRLRLullrinthenternter!/usr/bin/python3
 # -*- coding: utf-8  -*-
 import requests as r, threading, random, click, fake_headers
 from threading import Thread
@@ -20,8 +20,6 @@ LOGO = """
 {Fore.RED}██▒▒  ██▒▒   ███████▒▒  ██▒▒    ████▒▒           ██▒▒║    ║██▒▒║
  \033[0m                                                               ╚═══╝    ╚════╝
 """
-faded_text = fade.fire(logo)
-print(faded_text)
 def check_prox(array, url):
 	ip = r.post("http://ip.beget.ru/").text
 	for prox in array:
@@ -76,13 +74,13 @@ def main(proxy, url):
 	if url == None:
 		url = input("URL: ")
 	if url[:4] != "http":
-		print(Fore.RED+"Enter the full URL (example: http*://****.**/)"+Style.RESET_ALL)
+		print("\033[91m[*]Enter the full URL (example: http*://****.**/)\033[0m")
 		exit()
 	if proxy == None:
 		while True:
 			req = r.get("https://api.proxyscrape.com/?request=displayproxies")
 			array = req.text.split()
-			print(Back.YELLOW+Fore.WHITE+"Found {} new proxies".format(len(array))+Style.RESET_ALL)
+			print("\033[33mFound {} new proxies".format(len(array))\033[0m")
 			check_prox(array, url)
 	else:
 		try:
