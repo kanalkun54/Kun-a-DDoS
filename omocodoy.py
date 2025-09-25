@@ -80,7 +80,7 @@ def main(proxy, url):
 		while True:
 			req = r.get("https://api.proxyscrape.com/?request=displayproxies")
 			array = req.text.split()
-			print("\033[33mFound {} new proxies".format(len(array))\033[0m")
+			print("\033[33mFound {} new proxies\033[0m".format(len(array))
 			check_prox(array, url)
 	else:
 		try:
